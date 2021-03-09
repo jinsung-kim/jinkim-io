@@ -12,4 +12,8 @@ app.get('/resume', (req, res) => {
     res.sendFile(__dirname + '/resume.pdf');
 });
 
+app.get('/pictures', (req, res) => {
+    res.sendFile(__dirname + '/pictures.html');
+});
+
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
