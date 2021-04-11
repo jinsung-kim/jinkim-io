@@ -16,4 +16,8 @@ app.get('/pictures', (req, res) => {
     res.sendFile(__dirname + '/pictures.html');
 });
 
+app.get("/blog", (req, res) => {
+    res.redirect("https://jinsung-kim.github.io/");
+});
+
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
