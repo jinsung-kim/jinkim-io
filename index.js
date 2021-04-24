@@ -3,6 +3,16 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000; // Can also set to 443 or 80
 
+if (process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+        res.redirect(`https://${req.header('host')}${req.url}`)
+    } else {
+        next()
+    }
+    })
+}
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html'); // Used to load the site
 });
