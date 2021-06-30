@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000; // Can also set to 443 or 80
 
+// Forces the HTTPS version of the website
 if (process.env.NODE_ENV === 'production') {
     app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https') {
